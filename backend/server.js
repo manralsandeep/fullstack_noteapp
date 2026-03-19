@@ -1,0 +1,19 @@
+//server start krna
+//db se connect krna
+
+const dns = require("dns");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+dns.setDefaultResultOrder("ipv4first");
+
+require("dotenv").config()
+
+
+const app = require("./src/app")
+const connectToDb= require("./src/config/database")
+
+connectToDb()
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
