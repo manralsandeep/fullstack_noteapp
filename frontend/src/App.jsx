@@ -9,7 +9,7 @@ const App = () => {
 
   async function fetchNotesData() {
    
-  const response = await axios.get ("http://localhost:3000/api/notes")
+  const response = await axios.get ("https://fullstack-noteapp-4.onrender.com/api/notes")
   setnotedata(response.data.notes)
   
   }
@@ -21,7 +21,7 @@ const App = () => {
  async function submitHandler(e) {
   e.preventDefault()
   const {title,description}=e.target.elements
-   await axios.post("http://localhost:3000/api/notes", {
+   await axios.post("https://fullstack-noteapp-4.onrender.com/api/notes", {
       title: title.value,
      description: description.value
    })
@@ -33,7 +33,7 @@ const App = () => {
 
   async function deleteHandler(id) {
   
-   await axios.delete("http://localhost:3000/api/notes/"+id)
+   await axios.delete("https://fullstack-noteapp-4.onrender.com/api/notes/"+id)
     fetchNotesData()
     
   }
